@@ -1,5 +1,7 @@
 package com.mycompany.dvdstore.movie.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -40,8 +42,8 @@ public class MovieService implements IMovieService
 
 	@Override
 	public Iterable<Movie> getMovieList() {
-		// TODO Auto-generated method stub
-		return null;
+		return Optional.ofNullable(movieRepository.findAll()).orElseThrow(
+				() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 
 }
