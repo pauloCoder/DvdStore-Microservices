@@ -31,5 +31,11 @@ public class MovieResource
 		return movieService.getMovieById(id);
 	}
 	
+	@GetMapping("")
+	public Iterable<Movie> list()
+	{
+		return  movieService.getMovieList();
+	}
+	
 
 }
