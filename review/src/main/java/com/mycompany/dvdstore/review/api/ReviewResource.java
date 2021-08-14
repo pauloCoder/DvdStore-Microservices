@@ -16,7 +16,7 @@ public class ReviewResource {
 	@Autowired
 	private IReviewService reviewService;
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public Review get(@PathVariable("id") Long id)
 	{
 		return reviewService.getReviewById(id);
@@ -28,7 +28,7 @@ public class ReviewResource {
 		return reviewService.getReviewList();
 	}
 	
-	@GetMapping("/movie/{id}")
+	@GetMapping("/byMovie/{id}")
 	public Iterable<Review> listByIdMovie(@PathVariable("id") Long id)
 	{
 		return reviewService.getReviewListByIdMovie(id);

@@ -37,7 +37,7 @@ public class MovieResource
 	@GetMapping("/{id}")
 	public Movie get(@PathVariable("id") Long id)
 	{
-		String url = "http://localhost:9005/review/movie/";
+		String url = "http://review-service/review/byMovie/";
 		Movie movie = movieService.getMovieById(id);
 		ResponseEntity<Review[]> responseEntity = restTemplate.getForEntity(url + movie.getId(), Review[].class);
 		
